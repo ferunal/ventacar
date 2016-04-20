@@ -6,9 +6,12 @@
 package com.uniminuto.edu.ventacar.ctrl;
 
 import com.uniminuto.edu.ventacar.base.ConexionBD;
+import com.uniminuto.edu.ventacar.modelo.VntCarro;
 import java.io.Serializable;
 import java.sql.CallableStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.sql.Types;
 import java.util.ArrayList;
 import java.util.List;
@@ -37,6 +40,25 @@ public class AutoJSFBean extends ConexionBD implements Serializable {
             Logger.getLogger(CaracteristicaJSFBean.class.getName()).log(Level.SEVERE, null, ex);
         }
 
+    }
+
+    public void cargarCarros() {
+        lstTablaCarro.clear();
+        try {
+            String strSql = "SELECT car_id, car_nombre, car_foto, car_est  FROM public.vnt_carro ORDER BY car_nombre";
+            Statement st = conPg.createStatement();
+            ResultSet rs = st.executeQuery(strSql);
+            while (rs.next()) {
+                VntCarro vc = new VntCarro(rs.getLong("car_id"));
+                vc.setCarNombre(rs.getString("car_nombre"));
+                vc.setCarFoto(rs.getString("car_foto"));
+                vc.setCarEst(rs.getBoolean("car_est"));
+                TablaCarro tablaCarro = new TablaCarro(vc);
+                lstTablaCarro.add(tablaCarro);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(AutoJSFBean.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
