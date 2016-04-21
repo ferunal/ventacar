@@ -39,10 +39,29 @@ and open the template in the editor.
                                            label="File Entry"
                                            relativePath="uploaded"
                                            autoUpload="true"
+                                           
                                            fileEntryListener="#{autoJSFBean.listener}"/>
                             
                         </h:panelGrid>
+                        <ace:graphicImage value="#{autoJSFBean.byteArrrayImagen}" alt="alt"/>
+                        <ace:pushButton value="Guardar" actionListener="#{autoJSFBean.guardarCarroAE()}"/>
                     </h:panelGrid>
+                </ace:panel>
+                <ace:panel header="Carros existentes">
+                    <ace:dataTable value="#{autoJSFBean.lstTablaCarro}" var="item">
+                        <ace:column>
+                            <f:facet name="header">
+                                <h:outputText value="Nombre"/>
+                            </f:facet>
+                            <h:outputText value="#{item.carro.carNombre}"/>
+                        </ace:column>
+                          <ace:column>
+                            <f:facet name="header">
+                                <h:outputText value="Foto"/>
+                            </f:facet>
+                              <ace:graphicImage value="#{item.byteArrrayImagen}" alt="#{item.carro.carFoto}"/>
+                        </ace:column>
+                    </ace:dataTable>
                 </ace:panel>
             </h:panelGroup>
 

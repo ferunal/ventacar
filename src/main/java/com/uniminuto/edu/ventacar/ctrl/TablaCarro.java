@@ -13,13 +13,16 @@ import java.util.Objects;
  *
  * @author lchacon
  */
-public class TablaCarro extends TablaBaseFrm{
+public class TablaCarro extends TablaBaseFrm {
+
     private VntCarro carro = new VntCarro();
+    private byte[] byteArrrayImagen;
 
     public TablaCarro() {
     }
+
     public TablaCarro(VntCarro pCarro) {
-        this.carro=pCarro;
+        this.carro = pCarro;
     }
 
     @Override
@@ -60,6 +63,19 @@ public class TablaCarro extends TablaBaseFrm{
     public void setCarro(VntCarro carro) {
         this.carro = carro;
     }
-    
-    
+
+    /**
+     * @return the byteArrrayImagen
+     */
+    public byte[] getByteArrrayImagen() {
+        return byteArrrayImagen;
+    }
+
+    /**
+     * @param byteArrrayImagen the byteArrrayImagen to set
+     */
+    public void setByteArrrayImagen(byte[] byteArrrayImagen) {
+        this.byteArrrayImagen = byteArrrayImagen;
+    }
+
 }

@@ -6,25 +6,40 @@
 package com.uniminuto.edu.ventacar.ctrl;
 
 import com.uniminuto.edu.ventacar.base.ConexionBD;
+import com.uniminuto.edu.ventacar.modelo.VntCarro;
+import java.io.IOException;
 import java.io.Serializable;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.sql.CallableStatement;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.sql.Types;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.enterprise.context.SessionScoped;
+import javax.faces.context.ExternalContext;
+import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
+import javax.faces.model.SelectItem;
 import javax.inject.Named;
 
 @SessionScoped
 @Named
 public class CaracteristicaJSFBean extends ConexionBD implements Serializable {
 
+    private Integer tipoCarSel;
+    private List<SelectItem> lstItemsTipoCaract = new ArrayList<>();
     private List<TablaCaracteristica> lstTablaCaract = new ArrayList<>();
     private TablaCaracteristica tablaCaractSel = new TablaCaracteristica();
+
+    public void guardarCaractAE() {
+        guardarCaracteristica();
+    }
 
     private void guardarCaracteristica() {
         try {
@@ -41,10 +56,28 @@ public class CaracteristicaJSFBean extends ConexionBD implements Serializable {
 
     }
 
+    private void cargarTipoCaract() {
+
+        lstItemsTipoCaract.clear();
+        lstItemsTipoCaract.add(itemSeleccioneInt);
+        try {
+            String strSql = "SELECT tpcr_id, tpcr_nombre  FROM vnt_tipocrt ORDER BY  tpcr_nombre;";
+            Statement st = conPg.createStatement();
+            ResultSet rs = st.executeQuery(strSql);
+            while (rs.next()) {
+                lstItemsTipoCaract.add(new SelectItem(rs.getInt("tpcr_id"), rs.getString("tpcr_nombre")));
+
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(AutoJSFBean.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
     @Override
     public void init() {
         try {
             dsPgConexion();
+            cargarTipoCaract();
         } catch (SQLException ex) {
             Logger.getLogger(CaracteristicaJSFBean.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -97,5 +130,33 @@ public class CaracteristicaJSFBean extends ConexionBD implements Serializable {
     @Override
     public boolean validarFormulario() {
         return true;
+    }
+
+    /**
+     * @return the tipoCarSel
+     */
+    public Integer getTipoCarSel() {
+        return tipoCarSel;
+    }
+
+    /**
+     * @param tipoCarSel the tipoCarSel to set
+     */
+    public void setTipoCarSel(Integer tipoCarSel) {
+        this.tipoCarSel = tipoCarSel;
+    }
+
+    /**
+     * @return the lstItemsTipoCaract
+     */
+    public List<SelectItem> getLstItemsTipoCaract() {
+        return lstItemsTipoCaract;
+    }
+
+    /**
+     * @param lstItemsTipoCaract the lstItemsTipoCaract to set
+     */
+    public void setLstItemsTipoCaract(List<SelectItem> lstItemsTipoCaract) {
+        this.lstItemsTipoCaract = lstItemsTipoCaract;
     }
 }

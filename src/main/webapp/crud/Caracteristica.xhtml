@@ -5,12 +5,63 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
-    <head>
-        <title>TODO supply a title</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    </head>
-    <body>
-        <div>TODO write content</div>
-    </body>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:icecore="http://www.icefaces.org/icefaces/core"
+      xmlns:ace="http://www.icefaces.org/icefaces/components"
+      >
+
+
+
+
+    <ui:composition template="/base/paginamaestra.xhtml">
+        <ui:define name="top">
+
+        </ui:define>
+
+        <ui:define name="left">
+
+        </ui:define>
+
+
+
+        <ui:define name="content">
+            <h:panelGroup rendered="#{autoJSFBean.numPanel == 1? true : false}">
+                <ace:panel header="Guardar auto">
+                    <h:panelGrid columns="1">
+                        <h:panelGrid columns="2">
+                            <h:outputText value="Nombre"/>
+                            <ace:textEntry value="#{caracteristicaJSFBean.tablaCaractSel.caracteristica.crtcDescripcion}"/>
+                            <h:outputText value="foto"/>
+                            
+                            <ace:textEntry value="#{caracteristicaJSFBean.tablaCaractSel.caracteristica.tpcrId}"
+                            
+                        </h:panelGrid>
+                       
+                        <ace:pushButton value="Guardar" actionListener="#{caracteristicaJSFBean.guardarCaractAE()}"/>
+                    </h:panelGrid>
+                </ace:panel>
+                <ace:panel header="Carros existentes">
+                    <ace:dataTable value="#{autoJSFBean.lstTablaCarro}" var="item">
+                        <ace:column>
+                            <f:facet name="header">
+                                <h:outputText value="Nombre"/>
+                            </f:facet>
+                            <h:outputText value="#{item.carro.carNombre}"/>
+                        </ace:column>
+                          <ace:column>
+                            <f:facet name="header">
+                                <h:outputText value="Foto"/>
+                            </f:facet>
+                              <ace:graphicImage value="#{item.byteArrrayImagen}" alt="#{item.carro.carFoto}"/>
+                        </ace:column>
+                    </ace:dataTable>
+                </ace:panel>
+            </h:panelGroup>
+
+
+        </ui:define>
+    </ui:composition>
 </html>

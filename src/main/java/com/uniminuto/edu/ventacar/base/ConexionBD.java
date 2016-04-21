@@ -24,7 +24,7 @@ import org.postgresql.ds.PGSimpleDataSource;
  * @author Luis Fernando
  */
 public abstract class ConexionBD implements Serializable {
-
+    protected final String rutaRecursos="/WEB-INF/classes/";
     protected SelectItem itemSeleccioneStr = new SelectItem("-1", "Seleccione>>");
     protected SelectItem itemSeleccioneInt = new SelectItem(-1, "Seleccione>>");
     protected SelectItem itemSeleccioneLng = new SelectItem(-1l, "Seleccione>>");
@@ -51,8 +51,8 @@ public abstract class ConexionBD implements Serializable {
         PGSimpleDataSource pgDs = new PGSimpleDataSource();
         pgDs.setServerName("localhost");
         pgDs.setDatabaseName("ventacar");
-        pgDs.setUser("uniminuto");
-        pgDs.setPassword("uniminuto");
+        pgDs.setUser("auditoria");
+        pgDs.setPassword("auditoria");
         pgDs.setPortNumber(5432);
         conPg = pgDs.getConnection();
     }

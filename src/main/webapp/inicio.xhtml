@@ -28,7 +28,7 @@ and open the template in the editor.
            
 
             <ui:define name="content">
-                <ace:pushButton value="Auto" action="auto"/>
+                <ace:pushButton value="Auto" action="auto" actionListener="#{principalJSFBean.navAuto_AE()}"/>
                 <h:panelGroup rendered="#{principalJSFBean.numPanel == 1? true : false}">
                     
                 </h:panelGroup>

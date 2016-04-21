@@ -8,6 +8,7 @@ package com.uniminuto.edu.ventacar.ctrl;
 import com.uniminuto.edu.ventacar.base.BaseJSFBean;
 import javax.enterprise.context.SessionScoped;
 import javax.faces.event.ActionEvent;
+import javax.inject.Inject;
 import javax.inject.Named;
 
 /**
@@ -16,11 +17,18 @@ import javax.inject.Named;
  */
 @SessionScoped
 @Named
-public class PrincipalJSFBean extends BaseJSFBean{
+public class PrincipalJSFBean extends BaseJSFBean {
+
+    @Inject
+    AutoJSFBean autoJSFBean;
+
+    public void navAuto_AE() {
+        autoJSFBean.init();
+    }
 
     @Override
     public void init() {
-       
+
     }
 
     @Override
@@ -35,5 +43,5 @@ public class PrincipalJSFBean extends BaseJSFBean{
     public boolean validarFormulario() {
         return true;
     }
-    
+
 }
