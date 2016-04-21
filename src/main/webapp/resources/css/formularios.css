@@ -1,0 +1,1468 @@
+/* 
+    Document   : formularios
+    Created on : 19/07/2012, 04:49:18 PM
+    Author     : breyner
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/*
+variables generales del formulario
+*/
+canvas.jqplot-grid-canvas{
+    /* height: 1000px !important;*/
+}
+canvas.jqplot-event-canvas{
+    /*height: 1000px !important;*/
+}
+a.dp-choose-date {
+    float: left;
+    width: 16px;
+    height: 16px;
+    padding: 0;
+    margin: 5px 3px 0;
+    display: block;
+    text-indent: -2000px;
+    overflow: hidden;
+    background: url(calendar.png) no-repeat; 
+}
+a.dp-choose-date.dp-disabled {
+    background-position: 0 -20px;
+    cursor: default;
+}
+/* makes the input field shorter once the date picker code
+ * has run (to allow space for the calendar icon
+*/
+input.dp-applied {
+    width: 140px;
+    float: left;
+}
+
+
+.inputTextFecha{
+    color: #99ccff;
+
+}
+select{
+    /*background-color: #F7F9FC;
+    text-transform: uppercase;*/
+    border: 1px solid rgb(174, 208, 234);
+    background: url("/elyon/javax.faces.resource/images/ui-bg_glass_80_d7ebf9_1x400.png.jsf?ln=ace-cupertino") repeat-x scroll 50% 50% rgb(215, 235, 249);
+    font-weight: bolder;
+    /*color: black !important;*/
+    color: rgb(39, 121, 170); 
+    /*font-size: 1em;*/
+    font-size: 10px;
+    font-family: Lucida Sans,Arial,sans-serif;
+    margin: 0px;
+    outline: medium none;
+    padding: 2px;
+    border-top-right-radius: 6px;
+    border-top-left-radius:  6px;
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+    /* font: inherit;*/
+    text-transform:  uppercase;
+    height: 20px;
+
+}
+
+.cssPendienteNoSol,.cssPendienteNoPen,.cssPendienteSol{
+    font-size: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+}
+
+.cssPendienteNoSol{
+    color: red;
+}
+
+.cssPendienteNoPen{
+    color:  goldenrod;
+}
+
+.cssPendienteSol{
+    color:  green;
+}
+
+option{
+
+    background-color: #F7F9FC;
+    text-transform: uppercase;
+
+}
+
+.grafico{
+    width: 800px;
+}
+label
+{
+    font: normal 11px Arial, Sans-serif;
+    color: black;
+
+    font-weight: normal;
+
+
+}
+.ui-datatable tbody.ui-datatable-data > tr > td,.ui-datatable tbody.ui-datatable-data-empty > tr > td {
+    border-color: rgb(181,215,235) !important;
+    border-width: 1px !important;
+    border-style: solid !important;
+    padding:4px 10px;
+    /*text-align: center;*/
+}
+/**
+Alinear el contnido de una tabla
+*/
+.tablaAlnVer>tbody {
+    vertical-align: top !important;
+}
+
+/*thead{
+    text-align: center !important;
+}*/
+td span.textcolumcenter{
+    text-align: center;
+    float: inside;
+}
+td span.textcolumleft{
+    text-align: left !important; float: left;
+}
+td span.textcolumright{
+    text-align: right !important; float: right;
+}
+
+td span.textcolumnjustify{
+    text-align: justify  !important; float: left;
+
+}
+
+td a.textcolumvinculo{
+    color: #3366ff; font-weight: bold;
+}
+td a.textcolumvinculo:hover{
+    color: #cc0033;
+}
+
+.dataTableSel{
+    width: 50px !important;
+}
+
+.dataTableTxtCorto{
+    width: 70px !important;
+}
+
+.dateTableTxtMediano{
+    width: 150px !important;
+}
+
+.dataTableTxtLargo{
+    width: 250px !important;
+
+}
+
+.dataTableTexto{
+    width: 400px !important;
+
+}
+
+.pnlGrdMisInd{
+    width: 400px;
+}
+.claseGraficoMisInd{
+    font-size: 14px;
+    font-weight: bold;
+
+}
+.separacionLateral{
+    height: 30px !important;
+}
+
+.alineacionVertGrid >tbody{
+    vertical-align: top !important;
+}
+
+.alineacionVertGridMedio >tbody{
+    vertical-align: middle !important;;
+}
+
+.alineacionVertGridBajo >tbody{
+    vertical-align: bottom !important;;
+}
+
+.btnNavLateralSel{
+    color: #cc0033 !important;
+    font-weight : bold !important;
+    font-size: 11px !important;
+    font-family:   Arial, Helvetica, sans-serif;
+}
+
+.btnNavLateral{
+    color: #000000 !important;
+    font-weight : bold !important;
+    font-size: 11px !important;
+    font-family:   Arial, Helvetica, sans-serif; 
+
+
+}
+.btnNavLateralSel:hover{
+    color: #cc0033 !important;
+    font-weight : bold !important;
+    font-size: 11px !important;
+    font-family:   Arial, Helvetica, sans-serif;
+    text-decoration: underline !important;
+}
+
+.btnNavLateral:hover{
+    color: #000000 !important;
+    font-weight : bold !important;
+    font-size: 11px !important;
+    font-family:   Arial, Helvetica, sans-serif; 
+
+    text-decoration: underline !important;
+}
+
+.btnNavLateralSelNotificaciones{
+    color: #cc0033 !important;
+    font-weight : bold !important;
+    font-size: 11px !important;
+    font-family:   Arial, Helvetica, sans-serif;
+}
+
+.btnNavLateralNotificaciones{
+    color: #000000 !important;
+    font-weight : bold !important;
+    font-size: 11px !important;
+    font-family:   Arial, Helvetica, sans-serif; 
+
+
+}
+.btnNavLateralSelNotificaciones:hover{
+    color: #cc0033 !important;
+    font-weight : bold !important;
+    font-size: 11px !important;
+    font-family:   Arial, Helvetica, sans-serif;
+    text-decoration: underline !important;
+}
+
+.btnNavLateralNotificaciones:hover{
+    color: #000000 !important;
+    font-weight : bold !important;
+    font-size: 11px !important;
+    font-family:   Arial, Helvetica, sans-serif; 
+
+    text-decoration: underline !important;
+}
+
+
+
+.textMediano{
+    height: 13px !important;
+    width: 137px !important;  
+}
+.textMedianoMed{
+    height: 13px;
+    width: 150px;  
+}
+.textGrande{
+    height: 13px;
+    width: 400px;  
+}
+.textGrandeAdm{
+    height: 13px;
+    width: 426px;  
+}
+
+.textAreaMediano{
+    width: 200px;
+    height: 60px;
+    font-size: 11px;
+}
+
+.textAreaGrande{
+    width: 489px;
+    height: 60px;
+}
+.textAreaGrandeEvAdv{
+    width: 690px; height: 38px;
+}
+.textAreaGrandeConc{
+    width: 300px; height: 100px;
+
+}
+.textAreaPeq{
+    height: 40px;
+    width: 100px;  
+}
+
+.selectPeq{
+
+    width: 84px;  
+}
+.selectMediano{
+
+    width: 145px;  
+}
+.selectMedianoConc{
+
+    width: 195px;  
+}
+.selectGrande{
+
+    width: 300px; 
+}
+.outputText
+{
+    font: normal 12px/14px Arial, Sans-serif;
+    color: black;
+
+    font-weight: bold;
+}
+
+.outputTextContTabla
+{
+    font: normal 12px Arial, Sans-serif;
+    color: black;
+
+    font-weight: normal;
+}
+
+.outputTextContTablaInt
+{
+    font: normal 10px Arial, Sans-serif;
+    color: black;
+
+    font-weight: lighter;
+}
+.outputTextNotLabel
+{
+    font: normal 12px/14px Arial, Sans-serif;
+    color: black;
+
+
+}
+.selMulmenu{
+    width: 200px !important; 
+    height: 60px !important;
+}
+.textDxOServicio,.textPeq,.textNumero,.textMediano,.textGrande,.textGrandeAdm,.textMedianoMed,.textAreaMediano,.textAreaGrande,.textAreaPeq,.textAreaGrandeConc,
+.textAreaGrandeEvAdv,.selMulmenu
+{
+    /* background-color: #F7F9FC !important;
+ 
+     border-right-style: solid;
+     border-left-style: solid;
+     border-bottom-style: solid;
+     border-top-style: solid;
+     border-right-color: #bed4eb;
+     border-left-color: #bed4eb;
+     border-bottom-color: #bed4eb;
+     border-top-color: #bed4eb;
+     border-right-width: 1px;
+     border-left-width: 1px;
+     border-bottom-width: 1px;
+     border-top-width: 1px;*/
+    border: 1px solid rgb(174, 208, 234);
+    background: url("/elyon/javax.faces.resource/images/ui-bg_glass_80_d7ebf9_1x400.png.jsf?ln=ace-cupertino") repeat-x scroll 50% 50% rgb(215, 235, 249);
+    font-weight: bold;
+    /*color: black !important;*/
+    color: rgb(39, 121, 170); 
+    font-size: 11px;
+    font-family: Lucida Grande,Lucida Sans,Arial,sans-serif;
+    margin: 0px;
+    outline: medium none;
+    padding: 4px;
+    border-top-right-radius: 6px;
+    border-top-left-radius:  6px;
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+    font: inherit;
+    text-transform: uppercase;
+}
+.textDxOServicio{    
+        height: 13px;
+    width: 250px;
+}
+.textPeq{
+    height: 13px;
+    width: 80px;
+
+}
+.textNumero{
+    height: 13px;
+    width: 40px;
+    
+}
+.altoElmLateral{
+    height: 15px;
+
+}
+
+.letraMenu{
+
+
+    font-style: normal;
+    font-weight: bold;
+    color: #000000;
+    text-decoration: underline;
+    z-index: 2;
+    font-size: 13px !important;
+}
+.letraMenuSubMenu{
+
+
+    font-style: normal;
+    font-weight: 800 !important;
+    color: #000000 !important;
+    text-decoration:none;
+    font-size: 13px !important;
+
+    z-index: 2;
+}
+
+.colCabecera{
+    vertical-align: central;
+
+}
+
+
+.letraTitulosTabla{
+    font-size: 6px;
+    font-family:   Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    color: black;
+    font-style: italic;
+}
+
+.btnGuardarStd{
+    background-image: url("#{resource[':images/elyon/ColeccionIconosElyon-05.png']}")   !important;
+    border: none;
+    width: 24px ;height: 24px;
+    background-size: 100% auto;
+    background-repeat: repeat;
+    background-color: transparent !important;
+    border: 0px !important;
+}
+
+.btnGuardarStd:hover{
+    background-image: url("#{resource[':images/elyon/ColeccionIconosElyon_Over-05.png']}")   !important;
+    border: none;
+    width: 24px ;height: 24px;
+    background-size: 100% auto;
+    background-repeat: repeat;
+    background-color: transparent !important;
+    border: 0px !important;
+}
+
+.btnConsultaStd{
+    background-image: url("#{resource[':images/elyon/especificos/nurse-48.png']}")   !important;
+    border: none;
+    width: 24px ;height: 24px;
+    background-size: 100% auto;
+    background-repeat: repeat;
+    background-color: transparent !important;
+    border: 0px !important;
+}
+
+.btnInicioStd{
+    background-image: url("#{resource[':images/elyon/ColeccionIconosElyon-20.png']}")   !important;
+    border: none;
+    width: 24px ;height: 24px;
+    background-size: 100% auto;
+    background-repeat: repeat;
+    background-color: transparent !important;
+    border: 0px !important;
+}
+.btnInicioStd:hover{
+    background-image: url("#{resource[':images/elyon/ColeccionIconosElyon_Over-20.png']}")   !important;
+    border: none;
+    width: 24px ;height: 24px;
+    background-size: 100% auto;
+    background-repeat: repeat;
+    background-color: transparent !important;
+    border: 0px !important;
+}
+
+
+.btnBorrarStd{
+    background-image: url("#{resource[':images/iconos/estandar/delete_32.png']}")   !important;
+    border: none;
+    width: 24px ;height: 24px;
+    background-size: 100% auto;
+    background-repeat: repeat;
+    background-color: transparent !important;
+    border: 0px !important;
+}
+.btnBuscarStd{
+
+    background-image: url("#{resource[':images/elyon/ColeccionIconosElyon-31.png']}")   !important;
+    border: none;
+    width: 24px ;height: 24px;
+    background-size: 100% auto;
+    background-repeat: repeat;
+    background-color: transparent !important;
+    border: 0px !important;
+}
+
+/*.btnBuscarStd:hover{
+
+    background-image: url("#{resource[':images/elyon/ColeccionIconosElyon_Over-31.png']}")   !important;
+    border: none !important;
+    width: 24px !important; height: 24px!important;
+    background-size: 100% auto !important;
+    background-repeat: repeat !important;
+    background-color:  transparent !important;
+    border: 0px !important;
+}*/
+
+.btnNuevoStd2{
+    background-image: url("#{resource[':images/elyon/ColeccionIconosElyon-01.png']}") !important;
+    border: none;
+    width: 15px ;height: 15px;
+    background-size: 100% auto;
+    background-repeat: repeat;
+    background-color: transparent !important;
+    border: 0px !important;
+}
+
+.btnNuevoStd2:hover{
+    background-image: url("#{resource[':images/elyon/ColeccionIconosElyon_Over-02.png']}")   !important;
+    border: none;
+    width: 15px ;height: 15px;
+    background-size: 100% auto;
+    background-repeat: repeat;
+    background-color: transparent !important;
+    border: 0px !important;
+}
+
+.btnNuevoStd{
+
+
+    background-image: url("#{resource[':images/elyon/ColeccionIconosElyon-02.png']}")   !important;
+    border: none;
+    width: 24px ;height: 24px;
+    background-size: 100% auto;
+    background-repeat: repeat;
+    background-color: transparent !important;
+    border: 0px !important;
+}
+.btnNuevoStd:hover{
+
+
+    background-image: url("#{resource[':images/elyon/ColeccionIconosElyon_Over-02.png']}")   !important;
+    border: none;
+    width: 24px ;height: 24px;
+    background-size: 100% auto;
+    background-repeat: repeat;
+    background-color: transparent !important;
+    border: 0px !important;
+}
+.btnVolverStd{
+
+
+    background-image: url("#{resource[':images/elyon/ColeccionIconosElyon-08.png']}")   !important;
+    border: none;
+    width: 24px ;height: 24px;
+    background-size: 100% auto;
+    background-repeat: repeat; 
+    background-color: transparent !important;
+}
+
+.btnVolverStd:hover{
+
+
+    background-image: url("#{resource[':images/elyon/ColeccionIconosElyon_Over-08.png']}")   !important;
+    border: none;
+    width: 24px ;height: 24px;
+    background-size: 100% auto;
+    background-repeat: repeat; 
+    background-color: transparent !important;
+}
+
+
+
+.colchoiceCabAud{
+    width : 350px;
+}
+
+.colchoiceCabAud2{
+    width : 500px;
+}
+
+
+.seleccionParametrosUCI{
+    width : 435px;
+}
+
+
+.btnmenuUsuario{
+
+
+    background-image: url("#{resource[':images/iconos/ColeccionIconosElyon-29.png']}")   !important;
+    border: none;
+    width: 30px ;height: 30px;
+    background-size: 100% auto;
+    background-repeat: repeat;
+    background-color: transparent !important;
+    border: 0px !important;
+}
+
+.btnmenuUsuario:hover{
+
+
+    background-image: url("#{resource[':images/iconos/ColeccionIconosElyon_Over-29.png']}")   !important;
+    border: none;
+    width: 30px ;height: 30px;
+    background-size: 100% auto;
+    background-repeat: repeat;
+    background-color: transparent !important;
+    border: 0px !important;
+}
+.btnBuscarDX{
+
+    background-image: url("#{resource[':images/elyon/ColeccionIconosElyon-32.png']}")   !important;
+    border: none;
+    width: 24px ;height: 24px;
+    background-size: 100% auto;
+    background-repeat: repeat;
+    background-color: transparent !important;
+    border: 0px !important;
+}
+
+.btnBuscarDX:hover{
+
+    background-image: url("#{resource[':images/elyon/ColeccionIconosElyon_Over-32.png']}")   !important;
+    border: none;
+    width: 24px ;height: 24px;
+    background-size: 100% auto;
+    background-repeat: repeat;
+    background-color: transparent !important;
+    border: 0px !important;
+}
+.tablaGridColumn{
+
+    border-width:  1px !important;
+    border-color: #99ccff !important;
+    border-bottom-style:solid;
+
+    border-left-style: solid;
+    border-right-style: solid;
+    border-top-style: solid;
+    background-repeat: repeat;
+    position: static;
+
+
+    padding: 0px;
+
+}
+
+
+.coltextArea{
+    width : 400px;
+    font-size: 10px;
+    height: 60px;
+    text-transform: uppercase;
+}
+
+.btnAgregarStd{
+    background-image: url("#{resource[':images/elyon/especificos/ColeccionIconosElyon2-25.png']}") !important;
+    border: none;
+    width: 24px; height: 24px;
+    background-size: 100% auto;
+    background-repeat: repeat;
+    background-color: transparent !important;
+    border: 0px !important;
+}
+
+.btnQuitarStd{
+    background-image: url("#{resource[':images/elyon/especificos/ColeccionIconosElyon2-25-1.png']}") !important;
+    border: none;
+    width: 24px; height: 24px;
+    background-size: 100% auto;
+    background-repeat: repeat;
+    background-color: transparent !important;
+    border: 0px !important;
+}
+
+.btnCancelarStd{
+
+    background-image: url("#{resource[':images/elyon/ColeccionIconosElyon-26.png']}") !important;
+    border: none;
+    width: 24px; height: 24px;
+    background-size: 100% auto;
+    background-repeat: repeat;
+    background-color: transparent !important;
+    border: 0px !important;
+}
+.btnCerrarStd{
+    background-image: url("#{resource[':images/elyon/ColeccionIconosElyon2-02.png']}")  !important;
+    border: none;
+    width: 24px ;height: 24px;
+    background-size: 100% auto;
+    background-repeat: repeat;
+    background-color: transparent !important;
+    border: 0px !important;
+}
+
+.btnCancelarStd:hover{
+
+    background-image: url("#{resource[':images/elyon/ColeccionIconosElyon_Over-26.png']}")   !important;
+    border: none;
+    width: 24px ;height: 24px;
+    background-size: 100% auto;
+    background-repeat: repeat;
+    background-color: transparent !important;
+    border: 0px !important;
+}
+
+.btnCargarZipStd{
+    background-image: url("#{resource[':images/elyon/especificos/ColeccionIconosElyon2-07.png']}")   !important;
+    border: none;
+    width: 24px ;height: 24px;
+    background-size: 100% auto;
+    background-repeat: repeat;
+    background-color: transparent !important;
+    border: 0px !important;
+
+}
+
+.btnCargarZipStd:hover{
+    background-image: url("#{resource[':images/elyon/especificos/ColeccionIconosElyon2_Over-07.png']}")   !important;
+    border: none;
+    width: 24px ;height: 24px;
+    background-size: 100% auto;
+    background-repeat: repeat;
+    background-color: transparent !important;
+    border: 0px !important;
+
+}
+
+.btnNuevoAut{
+
+
+    background-image: url("#{resource[':images/elyon/ColeccionIconosElyon-02.png']}")   !important;
+    border: none;
+    width: 24px ;height: 24px;
+    background-size: 100% auto;
+    background-repeat: repeat;
+    background-color: transparent !important;
+    border: 0px !important;
+}
+.btnNuevoAut:hover{
+
+
+    background-image: url("#{resource[':images/elyon/ColeccionIconosElyon_Over-02.png']}")   !important;
+    border: none;
+    width: 24px ;height: 24px;
+    background-size: 100% auto;
+    background-repeat: repeat;
+    background-color: transparent !important;
+    border: 0px !important;
+}
+
+.btnGuardarAut{
+    background-image: url("#{resource[':images/elyon/ColeccionIconosElyon-05.png']}")   !important;
+    border: none;
+    width: 24px ;height: 24px;
+    background-size: 100% auto;
+    background-repeat: repeat;
+    background-color: transparent !important;
+    border: 0px !important;
+}
+
+.btnGuardarAut:hover{
+    background-image: url("#{resource[':images/elyon/ColeccionIconosElyon_Over-05.png']}")   !important;
+    border: none;
+    width: 24px ;height: 24px;
+    background-size: 100% auto;
+    background-repeat: repeat;
+    background-color: transparent !important;
+    border: 0px !important;
+}
+
+.btnVerDatoRCN{
+    background-image: url("#{resource[':images/elyon/ColeccionIconosElyon-50.png']}")   !important;
+    border: none;
+    width: 24px ;height: 24px;
+    background-size: 100% auto;
+    background-repeat: repeat;
+    background-color: transparent !important;
+    border: 0px !important;
+}
+
+.btnVerDatoRCN:hover{
+    background-image: url("#{resource[':images/elyon/ColeccionIconosElyon_Over-50.png']}")   !important;
+    border: none;
+    width: 24px ;height: 24px;
+    background-size: 100% auto;
+    background-repeat: repeat;
+    background-color: transparent !important;
+    border: 0px !important;
+}
+
+.btnProcesarRips{
+    background-image: url("#{resource[':images/iconos/estandar/ico_facturas.gif']}")   !important;
+    border: none;
+    width: 24px ;height: 24px;
+    background-size: 100% auto;
+    background-repeat: repeat;
+    background-color: transparent !important;
+    border: 0px !important;
+}
+
+
+
+.btnTrash{
+    background-image: url("#{resource[':images/elyon/ColeccionIconosElyon-23.png']}")   !important;
+    border: none;
+    width: 24px ;height: 24px;
+    background-size: 100% auto;
+    background-repeat: repeat;
+    background-color: transparent !important;
+    border: 0px !important;
+}
+
+.btnTrash:hover{
+    background-image: url("#{resource[':images/elyon/ColeccionIconosElyon_Over-23.png']}")   !important;
+    border: none;
+    width: 24px ;height: 24px;
+    background-size: 100% auto;
+    background-repeat: repeat;
+    background-color: transparent !important;
+    border: 0px !important;
+}
+
+.btnOK{
+    background-image: url("#{resource[':images/iconos/estandar/tick_32.png']}")   !important;
+    border: none;
+    width: 24px ;height: 24px;
+    background-size: 100% auto;
+    background-repeat: repeat;
+    background-color: transparent !important;
+    border: 0px !important;
+}
+
+.btnBlok{
+    background-image: url("#{resource[':images/iconos/estandar/block_32.png']}")   !important;
+    border: none;
+    width: 24px ;height: 24px;
+    background-size: 100% auto;
+    background-repeat: repeat;
+    background-color: transparent !important;
+    border: 0px !important;
+}
+/*
+.stylePanelHeader{
+    border: 1px solid #aed0ea; background: #deedf7 url("#{resource['ace-cupertino:images/ui-bg_highlight-soft_100_deedf7_1x100.png']}") 50% 50% repeat-x; color: #222222; font-weight: bold;
+
+    
+}*/
+
+.styleLetraMsj{
+
+    background-color: #bed4eb;
+
+    vertical-align: top;
+    border-right-style: solid;
+    border-left-style: solid;
+    border-bottom-style: solid;
+    border-top-style: solid;
+    border-right-color: #bed4eb;
+    border-left-color: #bed4eb;
+    border-bottom-color: #bed4eb;
+    border-top-color: #bed4eb;
+
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.styleLetraMsj2{
+
+
+    vertical-align: top;
+
+
+
+    font-size: 12px;
+    font-weight: bold;
+
+}
+.stylePanelGrid{
+    border-right-style: solid;
+    border-left-style: solid;
+    border-bottom-style: solid;
+    border-top-style: solid;
+    border-right-width: 1px;
+    border-left-width: 1px;
+    border-bottom-width: 1px;
+    border-top-width: 1px;
+
+    border-right-color: #bed4eb;
+    border-left-color: #bed4eb;
+    border-bottom-color: #bed4eb;
+    border-top-color: #bed4eb;
+}
+
+.txtSumaSellado,.txtRestaSellado,.txtNeutroSellado,.txtBlackSellado{
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 10px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.txtSumaSellado{
+    color: blue;
+}
+.txtRestaSellado{
+    color: red;
+}
+
+.txtNeutroSellado{
+    color: green;
+}
+
+.txtBlackSellado{
+    color: black;
+}
+
+.txtGrabadoSellado{
+    color: green;
+    font-size: 20px;
+    font-style: italic;
+}
+
+.txtTotalSellado{
+    color: black;
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 13px;
+    font-weight: bold;
+    text-align: center;
+    background-color: aqua;
+    background-attachment: inherit;
+    background-position: inherit;
+}
+
+.labelSellado{
+    background: #3366ff;
+    text-align:left;
+    text-decoration: underline;
+    height: 40px;
+    border: #33ffff;
+    font-weight: 900;
+}
+.seleccione{
+   
+    color: #3366ff;
+    font-weight: bold;
+    /*text-align: center;*/
+    font-style: italic;
+}
+
+.glosaok{
+    color: #3366ff;
+    font-weight: bold;
+    text-align: center;
+}
+
+.glosanok{
+    color: red;
+    font-weight: bold;
+    text-align: center;
+}
+
+.btnCerrarCaso{
+    background-image: url("#{resource[':images/elyon/especificos/ColeccionIconosElyon2-02.png']}")   !important;
+    border: none;
+    width: 24px ;height: 24px;
+    background-size: 100% auto;
+    background-repeat: repeat;
+    background-color: transparent !important;
+    border: 0px !important;
+}
+.btnCerrarCaso:hover{
+    background-image: url("#{resource[':images/elyon/especificos/ColeccionIconosElyon2_Over-02.png']}")   !important;
+    border: none;
+    width: 24px ;height: 24px;
+    background-size: 100% auto;
+    background-repeat: repeat;
+    background-color: transparent !important;
+    border: 0px !important;
+}
+.btnSalirApp{
+    background-image: url("#{resource[':images/elyon/especificos/logout.png']}")   !important;
+    border: none;
+    width: 24px ;height: 24px;
+    background-size: 100% auto;
+    background-repeat: repeat;
+    background-color: transparent !important;
+    border: 0px !important;
+}
+.btnAbrirCaso{
+    background-image: url("#{resource[':images/elyon/especificos/ColeccionIconosElyon2-07.png']}")   !important;
+    border: none;
+    width: 24px ;height: 24px;
+    background-size: 100% auto;
+    background-repeat: repeat;
+    background-color: transparent !important;
+    border: 0px !important;
+}
+.btnAbrirCaso:hover{
+    background-image: url("#{resource[':images/elyon/especificos/ColeccionIconosElyon2_Over-07.png']}")   !important;
+    border: none;
+    width: 24px ;height: 24px;
+    background-size: 100% auto;
+    background-repeat: repeat;
+    background-color: transparent !important;
+    border: 0px !important;
+}
+.btnGenerarInforme{
+    background-image: url("#{resource[':images/iconos/VerEstructura.png']}")   !important;
+    border: none;
+    width: 24px ;height: 24px;
+    background-size: 100% auto;
+    background-repeat: repeat;
+    background-color: transparent !important;
+    border: 0px !important;
+}
+
+.btnGenerarInforme:hover{
+    background-image: url("#{resource[':images/iconos/VerEstructura.png']}")   !important;
+    border: none;
+    width: 24px ;height: 24px;
+    background-size: 100% auto;
+    background-repeat: repeat;
+    background-color: transparent !important;
+    border: 0px !important;
+}
+
+.btnInformeEXCEL{
+    background-image: url("#{resource[':images/iconos/ColeccionIconos2-20.png']}")   !important;
+    border: none;
+    width: 24px ;height: 24px;
+    background-size: 100% auto;
+    background-repeat: repeat;
+    background-color: transparent !important;
+    border: 0px !important;
+}
+.btnInformePlano{
+    background-image: url("#{resource[':images/elyon/especificos/VerEstructura.png']}")   !important;
+    border: none;
+    width: 24px ;height: 24px;
+    background-size: 100% auto;
+    background-repeat: repeat;
+    background-color: transparent !important;
+    border: 0px !important;
+}
+
+.btnInformeEXCEL:hover{
+    background-image: url("#{resource[':images/elyon/especificos/ColeccionIconosElyon2_Over-20.png']}")   !important;
+    border: none;
+    width: 24px ;height: 24px;
+    background-size: 100% auto;
+    background-repeat: repeat;
+    background-color: transparent !important;
+    border: 0px !important;
+}
+
+.btnInformePDF{
+    background-image: url("#{resource[':images/elyon/especificos/ColeccionIconosElyon2-23.png']}")   !important;
+    border: none;
+    width: 24px ;height: 24px;
+    background-size: 100% auto;
+    background-repeat: repeat;
+    background-color: transparent !important;
+    border: 0px !important;
+}
+
+.btnInformePDF:hover{
+    background-image: url("#{resource[':images/elyon/especificos/ColeccionIconosElyon2_Over-23.png']}")   !important;
+    border: none;
+    width: 24px ;height: 24px;
+    background-size: 100% auto;
+    background-repeat: repeat;
+    background-color: transparent !important;
+    border: 0px !important;
+}
+.btnInformeGrafico{
+    background-image: url("#{resource[':images/elyon/especificos/ColeccionIconosElyon2-26.png']}")   !important;
+    border: none;
+    width: 24px ;height: 24px;
+    background-size: 100% auto;
+    background-repeat: repeat;
+    background-color: transparent !important;
+    border: 0px !important;
+}
+
+.btnInformeGrafico:hover{
+    background-image: url("#{resource[':images/elyon/especificos/ColeccionIconosElyon2_Over-26.png']}")   !important;
+    border: none;
+    width: 24px ;height: 24px;
+    background-size: 100% auto;
+    background-repeat: repeat;
+    background-color: transparent !important;
+    border: 0px !important;
+}
+
+.btnVerDetalle{
+    background-image: url("#{resource[':images/elyon/especificos/ColeccionIconosElyon2-05.png']}")   !important;
+    border: none;
+    width: 24px ;height: 24px;
+    background-size: 100% auto;
+    background-repeat: repeat;
+    background-color: transparent !important;
+    border: 0px !important;
+}
+
+.btnVerDetalle:hover{
+    background-image: url("#{resource[':images/elyon/especificos/ColeccionIconosElyon2_Over-05.png']}")   !important;
+    border: none;
+    width: 24px ;height: 24px;
+    background-size: 100% auto;
+    background-repeat: repeat;
+    background-color: transparent !important;
+    border: 0px !important;
+}
+
+
+.btnDesplegar{
+    background-image: url("#{resource[':images/elyon/ColeccionIconosElyon-50.png']}")   !important;
+    border: none;
+    width: 24px ;height: 24px;
+    background-size: 100% auto;
+    background-repeat: repeat;
+    background-color: transparent !important;
+    border: 0px !important;
+}
+
+.btnRecoger{
+    background-image: url("#{resource[':images/elyon/ColeccionIconosElyon_Over-50.png']}")   !important;
+    border: none;
+    width: 24px ;height: 24px;
+    background-size: 100% auto;
+    background-repeat: repeat;
+    background-color: transparent !important;
+    border: 0px !important;
+}
+.btnAsociar{
+    background-image: url("#{resource[':images/elyon/ColeccionIconosElyon-16.png']}")   !important;
+    border: none;
+    width: 24px ;height: 24px;
+    background-size: 100% auto;
+    background-repeat: repeat;
+    background-color: transparent !important;
+    border: 0px !important;
+}
+
+.btnAsociar:hover{
+    background-image: url("#{resource[':images/elyon/ColeccionIconosElyon_Over-16.png']}")   !important;
+    border: none;
+    width: 24px ;height: 24px;
+    background-size: 100% auto;
+    background-repeat: repeat;
+    background-color: transparent !important;
+    border: 0px !important;
+}
+.btnVerDatosClinicos{
+    background-image: url("#{resource[':images/elyon/especificos/ColeccionIconosElyon2-35.png']}")   !important;
+    border: none;
+    width: 24px ;height: 24px;
+    background-size: 100% auto;
+    background-repeat: repeat;
+    background-color: transparent !important;
+    border: 0px !important;
+}
+
+.btnVerDatosClinicos:hover{
+    background-image: url("#{resource[':images/elyon/especificos/ColeccionIconosElyon2_Over-35.png']}")   !important;
+    border: none;
+    width: 24px ;height: 24px;
+    background-size: 100% auto;
+    background-repeat: repeat;
+    background-color: transparent !important;
+    border: 0px !important;
+}
+
+.btnUsuarioMenu{
+    background-image: url("#{resource[':images/iconos/ColeccionIconosElyon-29.png']}")   !important;
+    border: none;
+    width: 24px ;height: 24px;
+    background-size: 100% auto;
+    background-repeat: repeat;
+    background-color: transparent !important;
+    border: 0px !important;
+}
+
+.cssPrioridadNotAlta{
+    font-size: 10px !important;
+    font-weight: bold !important;
+    color: darkred !important;
+}
+
+.cssPrioridadNotMedia{
+    font-size:10px !important;
+    color:black !important;
+}
+
+.cssPrioridadNotBaja{
+    font-size:10px !important;
+    color:black !important;
+}
+
+.cssPrioridadNotRespondida{
+    font-size: 10px !important;
+    font-weight: bold !important;
+    color: green !important;
+}
+
+.cssPrioridadNotVencida{
+    font-size: 10px !important;
+    font-weight: bold !important;
+    color: red !important;
+}
+
+.selNavCentroControlProyecto{
+    color: #000000 !important;
+    font-weight : bold !important;
+    font-size: 12px !important;
+    font-family:   Arial, Helvetica, sans-serif; 
+
+
+}
+
+.selNavCentroControlProyecto:hover{
+    color: #cc0033 !important;
+    font-weight : bold !important;
+    font-size: 12px !important;
+    font-family:   Arial, Helvetica, sans-serif;
+    text-decoration: underline !important;
+}
+
+.selNavCentroControlCarpeta{
+    color: #000000 !important;
+    font-weight : bold !important;
+    font-size: 10px !important;
+    font-family:   Arial, Helvetica, sans-serif; 
+
+
+}
+
+.selNavCentroControlCarpeta:hover{
+    color: #cc0033 !important;
+    font-weight : bold !important;
+    font-size: 10px !important;
+    font-family:   Arial, Helvetica, sans-serif;
+    text-decoration: underline !important;
+}
+
+.selNavCentroControlItem{
+    color: #000000 !important;
+    font-weight : bold !important;
+    font-size: 9px !important;
+    font-family:   Arial, Helvetica, sans-serif; 
+
+
+}
+
+.selNavCentroControlItem:hover{
+    color: #cc0033 !important;
+    font-weight : bold !important;
+    font-size: 9px !important;
+    font-family:   Arial, Helvetica, sans-serif;
+    text-decoration: underline !important;
+}
+
+
+.selNavCentroControlItemSel{
+    color: #cc0033 !important;
+    font-weight : bold !important;
+    /* font-size: 10px !important;*/
+    font-family:   Arial, Helvetica, sans-serif;
+    text-decoration: underline !important;
+
+
+}
+
+.selNavCentroControlItemSel:hover{
+    color: #cc0033 !important;
+    font-weight : bold !important;
+    /* font-size: 10px !important;*/
+    font-family:   Arial, Helvetica, sans-serif;
+    text-decoration: underline !important;
+}
+
+.styloBotonGeneral{
+    border-width:thin;
+    text-align:left;
+    font-weight:bold;
+    font-size:11px;
+    font-family: Arial,Helvetica,sans-serif;
+    height: 18px;
+    width: 18px;
+}
+
+.btnVerTodosCCrtl{
+    background-image: url("#{resource[':images/iconos/estandar/bola_purpura.jpg']}")   !important;
+    border: none;
+    width: 18px ;height: 18px;
+    background-size: 100% auto;
+    background-repeat: repeat;
+    background-color: transparent !important;
+    border: 0px !important;
+}
+
+.btnVerVencidosCCrtl{
+    background-image: url("#{resource[':images/iconos/estandar/bola-roja.gif']}")   !important;
+    border: none;
+    width: 18px ;height: 18px;
+    background-size: 100% auto;
+    background-repeat: repeat;
+    background-color: transparent !important;
+    border: 0px !important;
+}
+.btnVerPendientesCCrtl{
+    background-image: url("#{resource[':images/iconos/estandar/bola-amarilla.gif']}")   !important;
+    border: none;
+    width: 18px ;height: 18px;
+    background-size: 100% auto;
+    background-repeat: repeat;
+    background-color: transparent !important;
+    border: 0px !important;
+}
+.btnVerSolucionadosCCrtl{
+    background-image: url("#{resource[':images/iconos/estandar/bola-verde.gif']}")   !important;
+    border: none;
+    width: 18px ;height: 18px;
+    background-size: 100% auto;
+    background-repeat: repeat;
+    background-color: transparent !important;
+    border: 0px !important;
+}
+.btnVerSeleccionadoCCrtl{
+    background-image: url("#{resource[':images/iconos/estandar/bola-azul.gif']}")   !important;
+    border: none;
+    width: 18px ;height: 18px;
+    background-size: 100% auto;
+    background-repeat: repeat;
+    background-color: transparent !important;
+    border: 0px !important;
+}
+
+.btnGenerarGeneral{
+    background-image: url("#{resource[':images/elyon/especificos/ColeccionIconosElyon2-26.png']}")   !important;
+    border: none !important;
+    width: 24px ;height: 24px !important;
+    background-size: 100% auto;
+    background-repeat: repeat;
+    background-color: transparent !important;
+    border: 0px !important;
+
+
+}
+
+.btnGenerarGeneral:hover{
+    background-image: url("#{resource[':images/elyon/especificos/ColeccionIconosElyon2_Over-26.png']}")   !important;
+    border: none !important;
+    width: 24px ;height: 24px !important;
+    background-size: 100% auto;
+    background-repeat: repeat;
+    background-color: transparent !important;
+    border: 0px !important;
+
+
+
+
+
+
+
+}
+
+/*
+.ice-blockui-overlay {
+    position: absolute;
+    background-color: blue !important;
+    z-index: 28000;
+    opacity: 1500;
+    filter: alpha(opacity = 98000);
+    background-image: url("#{resource[':images/elyon/especificos/ColeccionIconosElyon2_Over-26.png']}")   !important;
+     background-repeat: repeat;
+    
+}
+*/
+
+.ui-widget input, .ui-widget select, .ui-widget textarea, .ui-widget button {
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 11px;
+}
+
+
+
+.styleMensajeError{
+    color:#CC0033 !important;
+    margin:8px !important;
+    font-size: 15px !important;
+    font-weight: bold !important;
+    margin-left: 130px !important;
+}
+
+.styleMensajeAdvertencia{
+    color: darkorange !important; 
+    margin:8px !important;
+    font-size: 15px !important;
+    font-weight: bold !important;
+    margin-left: 130px !important;
+
+}
+
+.styleMensajeExito{
+    color: #33cc00  !important;
+    margin:8px !important;
+    font-size: 15px !important;
+    font-weight: bold !important;
+    margin-left: 130px !important;
+    /*
+     style="color:#CC0033; margin:8px;font-size: 15px; font-weight: bold;margin-left: 130px"
+    */
+}
+
+.stylePushButton{
+    padding: 0px 0px;
+    font-size: 93%;
+    line-height: 2;
+    min-height: 2em;
+    margin: auto auto;
+    cursor : pointer;
+
+    display: block;
+    border: none;
+    margin: 0px;
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 11px;
+
+    margin: 0px 0px !important;
+    background-color: transparent !important;
+    margin: 0px 0px !important;
+    text-align: center;
+
+    color: transparent;
+    color: #0070a3; text-decoration: none;
+}
+
+
+.styleButtonLetra{
+    background-color: #bed4eb; 
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 11px;
+    font-weight:  bold;
+
+
+}
+
+.styleButtonLetra:hover{
+    background-color: #5A9EE2; 
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 11px;
+    font-weight:  bold;
+
+
+}
+

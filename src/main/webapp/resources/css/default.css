@@ -1,0 +1,60 @@
+/* 
+    Document   : default
+    Created on : 01-jul-2013, 11:58:49
+    Author     : luis
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+root { 
+    display: block;
+}
+.cabecera{
+    
+    height: 22px;
+    margin-top: 1px;
+    padding: 2px;
+
+    position:fixed;
+    margin-left: -1px;
+    border-width:  1px;
+    border-style: solid;
+    border-color:  white;
+
+
+
+
+    background: #bed4eb;
+    top: -3px;
+    left: 0px;
+
+    bottom: 6px;
+    width: 100%;
+    margin: auto;
+    background-color:  #f4f0ec;
+
+
+}
+
+h1 {
+    font-family: Arial, "Arial CE", "Lucida Grande CE", lucida, "Helvetica CE", sans-serif;
+    border-bottom: 1px solid #AFAFAF; 
+    font-size:  16px;
+    font-weight: bold;
+    margin: 0px;
+    padding: 0px;
+    color: #D20005;    
+
+}
+
+body {
+
+    font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -khtml-font-smoothing: antialiased;
+    -moz-font-smoothing: antialiased;
+    -ms-font-smoothing: antialiased;
+    -o-font-smoothing: antialiased;
+    font-smoothing: antialiased;
+}
+

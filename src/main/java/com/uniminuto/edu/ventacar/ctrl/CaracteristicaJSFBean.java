@@ -16,6 +16,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.enterprise.context.SessionScoped;
+import javax.faces.event.ActionEvent;
 import javax.inject.Named;
 
 @SessionScoped
@@ -40,6 +41,7 @@ public class CaracteristicaJSFBean extends ConexionBD implements Serializable {
 
     }
 
+    @Override
     public void init() {
         try {
             dsPgConexion();
@@ -84,4 +86,16 @@ public class CaracteristicaJSFBean extends ConexionBD implements Serializable {
         this.tablaCaractSel = tablaCaractSel;
     }
 
+    @Override
+    public void limpiarVariables() {
+    }
+
+    @Override
+    public void navegacionLateral_ActionEvent(ActionEvent ae) {
+    }
+
+    @Override
+    public boolean validarFormulario() {
+        return true;
+    }
 }

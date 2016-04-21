@@ -7,7 +7,11 @@ package com.uniminuto.edu.ventacar.ctrl;
 
 import com.uniminuto.edu.ventacar.base.ConexionBD;
 import com.uniminuto.edu.ventacar.modelo.VntCarro;
+import java.io.IOException;
 import java.io.Serializable;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 import java.sql.CallableStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -18,12 +22,31 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.enterprise.context.SessionScoped;
+import javax.faces.event.ActionEvent;
 import javax.inject.Named;
+import org.icefaces.ace.component.fileentry.FileEntry;
+import org.icefaces.ace.component.fileentry.FileEntryEvent;
+import org.icefaces.ace.component.fileentry.FileEntryResults;
 
 @SessionScoped
 @Named
 public class AutoJSFBean extends ConexionBD implements Serializable {
 
+    public void listener(FileEntryEvent event) {
+        FileEntry fileEntry = (FileEntry) event.getSource();
+        FileEntryResults results = fileEntry.getResults();
+        for (FileEntryResults.FileInfo fileInfo : results.getFiles()) {
+            if (fileInfo.isSaved()) {
+                try {
+                    System.out.println("Archivo " + fileInfo.getFileName() + " nombre fiscio " + fileInfo.getFile().getAbsolutePath());
+                    Files.copy(Paths.get(fileInfo.getFile().getAbsolutePath()), Paths.get(System.getProperty("user.home"), fileInfo.getFileName()), StandardCopyOption.REPLACE_EXISTING);
+                    Files.delete(Paths.get(fileInfo.getFile().getAbsolutePath()));
+                } catch (IOException ex) {
+                    Logger.getLogger(AutoJSFBean.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        }
+    }
     private List<TablaCarro> lstTablaCarro = new ArrayList<>();
     private TablaCarro tablaCarroSel = new TablaCarro();
 
@@ -87,6 +110,23 @@ public class AutoJSFBean extends ConexionBD implements Serializable {
      */
     public void setTablaCarroSel(TablaCarro tablaCarroSel) {
         this.tablaCarroSel = tablaCarroSel;
+    }
+
+    @Override
+    public void init() {
+    }
+
+    @Override
+    public void limpiarVariables() {
+    }
+
+    @Override
+    public void navegacionLateral_ActionEvent(ActionEvent ae) {
+    }
+
+    @Override
+    public boolean validarFormulario() {
+        return true;
     }
 
 }

@@ -8,6 +8,11 @@
         <servlet-name>Faces Servlet</servlet-name>
         <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
         <load-on-startup>1</load-on-startup>
+         <multipart-config>
+            <max-file-size>52428800</max-file-size>
+            <max-request-size>52428800</max-request-size>
+            <file-size-threshold>0</file-size-threshold>
+        </multipart-config>
     </servlet>
     <servlet-mapping>
         <servlet-name>Faces Servlet</servlet-name>
@@ -21,12 +26,13 @@
         <param-name>org.icefaces.ace.theme</param-name>
         <param-value>cupertino</param-value>
     </context-param>
+    
     <session-config>
         <session-timeout>
             30
         </session-timeout>
     </session-config>
     <welcome-file-list>
-        <welcome-file>Inicio.jsf</welcome-file>
+        <welcome-file>inicio.jsf</welcome-file>
     </welcome-file-list>
 </web-app>

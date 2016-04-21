@@ -13,26 +13,26 @@ and open the template in the editor.
       xmlns:ace="http://www.icefaces.org/icefaces/components"
      >
 
-  
+   
 
         
         <ui:composition template="/base/paginamaestra.xhtml">
-            <ui:define name="top">
+              <ui:define name="top">
                 
             </ui:define>
 
             <ui:define name="left">
-                
+                <ui:include src="leftBandEntrada.xhtml"/>
             </ui:define>
 
            
 
             <ui:define name="content">
-                <ace:pushButton value="Auto" action="auto"/>
-                <h:panelGroup rendered="#{principalJSFBean.numPanel == 1? true : false}">
-                    
+                <h:panelGroup rendered="#{administracionJSFBean.numPanel == 1? true : false}">
+                    <ui:include src="panelNotPend.xhtml"/>
                 </h:panelGroup>
-              
-            </ui:define>  
+          
+                  
+            </ui:define>
         </ui:composition>
 </html>
