@@ -21,9 +21,16 @@ public class PrincipalJSFBean extends BaseJSFBean {
 
     @Inject
     AutoJSFBean autoJSFBean;
+    @Inject
+    CaracteristicaJSFBean caracteristicaJSFBean;
 
     public void navAuto_AE() {
         autoJSFBean.init();
+
+    }
+
+    public void navCaract_AE() {
+        caracteristicaJSFBean.init();
     }
 
     @Override

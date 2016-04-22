@@ -29,33 +29,35 @@ and open the template in the editor.
 
         <ui:define name="content">
             <h:panelGroup rendered="#{autoJSFBean.numPanel == 1? true : false}">
-                <ace:panel header="Guardar auto">
+                <ace:panel header="Guardar caracteristica">
                     <h:panelGrid columns="1">
                         <h:panelGrid columns="2">
                             <h:outputText value="Nombre"/>
                             <ace:textEntry value="#{caracteristicaJSFBean.tablaCaractSel.caracteristica.crtcDescripcion}"/>
-                            <h:outputText value="foto"/>
-                            
-                            <ace:textEntry value="#{caracteristicaJSFBean.tablaCaractSel.caracteristica.tpcrId}"
-                            
+                            <h:outputText value="Tipo característica"/>
+
+                            <ace:simpleSelectOneMenu value="#{caracteristicaJSFBean.tipoCarSel}">
+                                <f:selectItems value="#{caracteristicaJSFBean.lstItemsTipoCaract}"/>
+                            </ace:simpleSelectOneMenu>
+
                         </h:panelGrid>
-                       
+
                         <ace:pushButton value="Guardar" actionListener="#{caracteristicaJSFBean.guardarCaractAE()}"/>
                     </h:panelGrid>
                 </ace:panel>
-                <ace:panel header="Carros existentes">
-                    <ace:dataTable value="#{autoJSFBean.lstTablaCarro}" var="item">
+                <ace:panel header="Caracteristica existentes">
+                    <ace:dataTable value="#{caracteristicaJSFBean.lstTablaCaract}" var="item">
                         <ace:column>
                             <f:facet name="header">
                                 <h:outputText value="Nombre"/>
                             </f:facet>
-                            <h:outputText value="#{item.carro.carNombre}"/>
+                            <h:outputText value="#{item.caracteristica.crtcDescripcion}"/>
                         </ace:column>
-                          <ace:column>
+                        <ace:column>
                             <f:facet name="header">
-                                <h:outputText value="Foto"/>
+                                <h:outputText value="Tipo"/>
                             </f:facet>
-                              <ace:graphicImage value="#{item.byteArrrayImagen}" alt="#{item.carro.carFoto}"/>
+                            <h:outputText value="#{item.caracteristica.tpcrId.tpcrNombre}"/>
                         </ace:column>
                     </ace:dataTable>
                 </ace:panel>

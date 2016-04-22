@@ -17,6 +17,7 @@ public class TablaCarro extends TablaBaseFrm {
 
     private VntCarro carro = new VntCarro();
     private byte[] byteArrrayImagen;
+    TablaCaracteristica tcXCarro = new TablaCaracteristica();
 
     public TablaCarro() {
     }

@@ -6,7 +6,9 @@
 package com.uniminuto.edu.ventacar.ctrl;
 
 import com.uniminuto.edu.ventacar.base.ConexionBD;
+import com.uniminuto.edu.ventacar.modelo.VntCaracteristicas;
 import com.uniminuto.edu.ventacar.modelo.VntCarro;
+import com.uniminuto.edu.ventacar.modelo.VntTipocrt;
 import java.io.IOException;
 import java.io.Serializable;
 import java.nio.file.Files;
@@ -39,6 +41,7 @@ public class CaracteristicaJSFBean extends ConexionBD implements Serializable {
 
     public void guardarCaractAE() {
         guardarCaracteristica();
+        cargarCaracts();
     }
 
     private void guardarCaracteristica() {
@@ -47,13 +50,35 @@ public class CaracteristicaJSFBean extends ConexionBD implements Serializable {
             CallableStatement pst = conPg.prepareCall(strInsCaract);
             pst.registerOutParameter(1, Types.BOOLEAN);
             pst.setString(2, tablaCaractSel.getCaracteristica().getCrtcDescripcion());
-            pst.setInt(3, tablaCaractSel.getCaracteristica().getTpcrId().getTpcrId());
+            pst.setInt(3, tipoCarSel);
             pst.execute();
             boolean ejec = pst.getBoolean(1);
         } catch (SQLException ex) {
             Logger.getLogger(CaracteristicaJSFBean.class.getName()).log(Level.SEVERE, null, ex);
         }
 
+    }
+
+    private void cargarCaracts() {
+
+        lstTablaCaract.clear();
+        try {
+            String strSql = "SELECT c.crtc_id, c.crtc_descripcion, c.crtc_est, t.tpcr_id , t.tpcr_nombre  FROM vnt_caracteristicas c INNER JOIN vnt_tipocrt t ON c.tpcr_id = t.tpcr_id ORDER BY crtc_descripcion";
+            Statement st = conPg.createStatement();
+            ResultSet rs = st.executeQuery(strSql);
+            while (rs.next()) {
+                VntCaracteristicas vc = new VntCaracteristicas(rs.getLong("crtc_id"));
+                vc.setCrtcDescripcion(rs.getString("crtc_descripcion"));
+                VntTipocrt vt = new VntTipocrt(rs.getInt("tpcr_id"));
+                vt.setTpcrNombre(rs.getString("tpcr_nombre"));
+                vc.setTpcrId(vt);
+                vc.setCrtcEst(rs.getBoolean("crtc_est"));
+
+                lstTablaCaract.add(new TablaCaracteristica(vc));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(AutoJSFBean.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     private void cargarTipoCaract() {
@@ -78,6 +103,7 @@ public class CaracteristicaJSFBean extends ConexionBD implements Serializable {
         try {
             dsPgConexion();
             cargarTipoCaract();
+            cargarCaracts();
         } catch (SQLException ex) {
             Logger.getLogger(CaracteristicaJSFBean.class.getName()).log(Level.SEVERE, null, ex);
         }

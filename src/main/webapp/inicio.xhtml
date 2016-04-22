@@ -11,28 +11,30 @@ and open the template in the editor.
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:icecore="http://www.icefaces.org/icefaces/core"
       xmlns:ace="http://www.icefaces.org/icefaces/components"
-     >
+      >
 
-  
 
-        
-        <ui:composition template="/base/paginamaestra.xhtml">
-            <ui:define name="top">
-                
-            </ui:define>
 
-            <ui:define name="left">
-                
-            </ui:define>
 
-           
+    <ui:composition template="/base/paginamaestra.xhtml">
+        <ui:define name="top">
 
-            <ui:define name="content">
-                <ace:pushButton value="Auto" action="auto" actionListener="#{principalJSFBean.navAuto_AE()}"/>
-                <h:panelGroup rendered="#{principalJSFBean.numPanel == 1? true : false}">
-                    
-                </h:panelGroup>
-              
-            </ui:define>  
-        </ui:composition>
+        </ui:define>
+
+        <ui:define name="left">
+
+        </ui:define>
+
+
+
+        <ui:define name="content">
+            <ace:panel header="Mantenimiento">
+                <h:panelGrid columns="4">
+                    <ace:pushButton value="Auto" action="auto" actionListener="#{principalJSFBean.navAuto_AE()}"/>
+                    <ace:pushButton value="Característica" action="caract" actionListener="#{principalJSFBean.navCaract_AE()}"/>
+                </h:panelGrid>
+            </ace:panel>
+
+        </ui:define>  
+    </ui:composition>
 </html>

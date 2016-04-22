@@ -63,8 +63,8 @@ public class AutoJSFBean extends ConexionBD implements Serializable {
     public void guardarCarroAE() {
         guardarCarro();
         cargarCarros();
-        tablaCarroSel=null;
-        tablaCarroSel=new TablaCarro();
+        tablaCarroSel = null;
+        tablaCarroSel = new TablaCarro();
     }
 
     private void guardarCarro() {
@@ -81,6 +81,10 @@ public class AutoJSFBean extends ConexionBD implements Serializable {
         }
 
     }
+
+//    public List<TablaCaracteristica> cargarCaractXCarro() {
+//        
+//    }
 
     public void cargarCarros() {
         fc = FacesContext.getCurrentInstance();

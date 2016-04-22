@@ -10,7 +10,7 @@
             <to-view-id>/crud/Auto.jsf</to-view-id>
         </navigation-case>
         <navigation-case>
-            <from-outcome>auto</from-outcome>
+            <from-outcome>caract</from-outcome>
             <to-view-id>/crud/Caracteristica.jsf</to-view-id>
         </navigation-case>
     </navigation-rule>
