@@ -7,12 +7,8 @@ package com.uniminuto.edu.ventacar.ctrl;
 
 import com.uniminuto.edu.ventacar.base.ConexionBD;
 import com.uniminuto.edu.ventacar.modelo.VntCaracteristicas;
-import com.uniminuto.edu.ventacar.modelo.VntCarro;
 import com.uniminuto.edu.ventacar.modelo.VntTipocrt;
-import java.io.IOException;
 import java.io.Serializable;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.sql.CallableStatement;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -24,8 +20,6 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.enterprise.context.SessionScoped;
-import javax.faces.context.ExternalContext;
-import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
 import javax.faces.model.SelectItem;
 import javax.inject.Named;
@@ -37,6 +31,7 @@ public class CaracteristicaJSFBean extends ConexionBD implements Serializable {
     private Integer tipoCarSel;
     private List<SelectItem> lstItemsTipoCaract = new ArrayList<>();
     private List<TablaCaracteristica> lstTablaCaract = new ArrayList<>();
+
     private TablaCaracteristica tablaCaractSel = new TablaCaracteristica();
 
     public void guardarCaractAE() {
@@ -59,7 +54,7 @@ public class CaracteristicaJSFBean extends ConexionBD implements Serializable {
 
     }
 
-    private void cargarCaracts() {
+    public void cargarCaracts() {
 
         lstTablaCaract.clear();
         try {
@@ -78,6 +73,34 @@ public class CaracteristicaJSFBean extends ConexionBD implements Serializable {
             }
         } catch (SQLException ex) {
             Logger.getLogger(AutoJSFBean.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    public List<TablaCaracteristica> cargarCaractsXAuto(Long pCarId) {
+        List<TablaCaracteristica> lstTablaCaractXAuto = new ArrayList<>();
+
+        try {
+            String strSql = "SELECT c.crtc_id, c.crtc_descripcion, c.crtc_est, t.tpcr_id , t.tpcr_nombre "
+                    + " FROM vnt_caracteristicas c INNER JOIN vnt_tipocrt t ON c.tpcr_id = t.tpcr_id "
+                    + "INNER JOIN vnt_carcactxauto cxa ON c.crtc_id = cxa.crtc_id "
+                    + "WHERE cxa.car_id = ? ORDER BY crtc_descripcion";
+            PreparedStatement st = conPg.prepareStatement(strSql);
+            st.setLong(1, pCarId);
+            ResultSet rs = st.executeQuery();
+            while (rs.next()) {
+                VntCaracteristicas vc = new VntCaracteristicas(rs.getLong("crtc_id"));
+                vc.setCrtcDescripcion(rs.getString("crtc_descripcion"));
+                VntTipocrt vt = new VntTipocrt(rs.getInt("tpcr_id"));
+                vt.setTpcrNombre(rs.getString("tpcr_nombre"));
+                vc.setTpcrId(vt);
+                vc.setCrtcEst(rs.getBoolean("crtc_est"));
+
+                lstTablaCaractXAuto.add(new TablaCaracteristica(vc));
+            }
+            return lstTablaCaractXAuto;
+        } catch (SQLException ex) {
+            Logger.getLogger(AutoJSFBean.class.getName()).log(Level.SEVERE, null, ex);
+            return new ArrayList<>();
         }
     }
 
@@ -104,14 +127,6 @@ public class CaracteristicaJSFBean extends ConexionBD implements Serializable {
             dsPgConexion();
             cargarTipoCaract();
             cargarCaracts();
-        } catch (SQLException ex) {
-            Logger.getLogger(CaracteristicaJSFBean.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
-
-    public void limbiarVariables() {
-        try {
-            cerrarPgConexion();
         } catch (SQLException ex) {
             Logger.getLogger(CaracteristicaJSFBean.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -147,6 +162,11 @@ public class CaracteristicaJSFBean extends ConexionBD implements Serializable {
 
     @Override
     public void limpiarVariables() {
+        try {
+            cerrarPgConexion();
+        } catch (SQLException ex) {
+            Logger.getLogger(CaracteristicaJSFBean.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     @Override
@@ -185,4 +205,5 @@ public class CaracteristicaJSFBean extends ConexionBD implements Serializable {
     public void setLstItemsTipoCaract(List<SelectItem> lstItemsTipoCaract) {
         this.lstItemsTipoCaract = lstItemsTipoCaract;
     }
+
 }

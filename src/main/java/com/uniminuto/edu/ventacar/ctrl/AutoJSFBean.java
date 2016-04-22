@@ -26,6 +26,7 @@ import javax.enterprise.context.SessionScoped;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
+import javax.inject.Inject;
 import javax.inject.Named;
 import org.icefaces.ace.component.fileentry.FileEntry;
 import org.icefaces.ace.component.fileentry.FileEntryEvent;
@@ -37,6 +38,8 @@ public class AutoJSFBean extends ConexionBD implements Serializable {
 
     private byte[] byteArrrayImagen;
 
+    @Inject
+    CaracteristicaJSFBean caracteristicaJSFBean;
     public void listener(FileEntryEvent event) {
         fc = FacesContext.getCurrentInstance();
         ExternalContext ec = fc.getExternalContext();
@@ -105,6 +108,7 @@ public class AutoJSFBean extends ConexionBD implements Serializable {
                 } catch (IOException ex) {
                     Logger.getLogger(AutoJSFBean.class.getName()).log(Level.SEVERE, null, ex);
                 }
+                tablaCarro.setTcXCarro(caracteristicaJSFBean.cargarCaractsXAuto(vc.getCarId()));
                 lstTablaCarro.add(tablaCarro);
             }
         } catch (SQLException ex) {

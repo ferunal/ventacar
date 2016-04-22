@@ -7,6 +7,8 @@ package com.uniminuto.edu.ventacar.ctrl;
 
 import com.uniminuto.edu.ventacar.base.TablaBaseFrm;
 import com.uniminuto.edu.ventacar.modelo.VntCarro;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 /**
@@ -17,7 +19,7 @@ public class TablaCarro extends TablaBaseFrm {
 
     private VntCarro carro = new VntCarro();
     private byte[] byteArrrayImagen;
-    TablaCaracteristica tcXCarro = new TablaCaracteristica();
+    private List<TablaCaracteristica> tcXCarro = new ArrayList<>();
 
     public TablaCarro() {
     }
@@ -78,5 +80,21 @@ public class TablaCarro extends TablaBaseFrm {
     public void setByteArrrayImagen(byte[] byteArrrayImagen) {
         this.byteArrrayImagen = byteArrrayImagen;
     }
+
+    /**
+     * @return the tcXCarro
+     */
+    public List<TablaCaracteristica> getTcXCarro() {
+        return tcXCarro;
+    }
+
+    /**
+     * @param tcXCarro the tcXCarro to set
+     */
+    public void setTcXCarro(List<TablaCaracteristica> tcXCarro) {
+        this.tcXCarro = tcXCarro;
+    }
+
+   
 
 }

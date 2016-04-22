@@ -32,6 +32,16 @@ and open the template in the editor.
                 <h:panelGrid columns="4">
                     <ace:pushButton value="Auto" action="auto" actionListener="#{principalJSFBean.navAuto_AE()}"/>
                     <ace:pushButton value="Característica" action="caract" actionListener="#{principalJSFBean.navCaract_AE()}"/>
+                    <ace:pushButton value="Característica por auto" action="cxa" actionListener="#{principalJSFBean.navCxc_AE()}"/>
+                </h:panelGrid>
+            </ace:panel>
+            <ace:panel header="Comentarios">
+                <h:panelGrid columns="2">
+                    <h:outputText value="Usuario"/>
+                    <ace:simpleSelectOneMenu value="#{comentariosJSFBean.tablaUsuarioSel}">
+                        <f:selectItems value="#{comentariosJSFBean.lstTablaUsuarios}" 
+                                       var="itemTu" itemLabel="#{itemTu.uusario.usrNombre}" itemValue="#{itemTu.uusario.usrId}"/>
+                    </ace:simpleSelectOneMenu>
                 </h:panelGrid>
             </ace:panel>
 

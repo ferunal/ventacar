@@ -6,6 +6,8 @@
 package com.uniminuto.edu.ventacar.ctrl;
 
 import com.uniminuto.edu.ventacar.base.ConexionBD;
+import com.uniminuto.edu.ventacar.modelo.VntCaracteristicas;
+import com.uniminuto.edu.ventacar.modelo.VntCarcactxauto;
 import java.sql.CallableStatement;
 import java.sql.SQLException;
 import java.sql.Types;
@@ -24,7 +26,7 @@ import javax.inject.Named;
  */
 @SessionScoped
 @Named
-public class CaractXCar extends ConexionBD {
+public class CaractXCarJSFBean extends ConexionBD {
 
     @Inject
     AutoJSFBean autoJSFBean;
@@ -36,6 +38,7 @@ public class CaractXCar extends ConexionBD {
 
     public void guardarCaractXAuto_AE() {
         guardarCaracXAuto();
+        autoJSFBean.cargarCarros();
     }
 
     private void guardarCaracXAuto() {
@@ -58,13 +61,15 @@ public class CaractXCar extends ConexionBD {
                 }
 
             }
-            selTodoLst(lstTablaCarros, false);
-            selTodoLst(lstCaracteristicas, false);
+            selTodoLst(caracteristicaJSFBean.getLstTablaCaract(), false);
+            selTodoLst(autoJSFBean.getLstTablaCarro(), false);
         } catch (SQLException ex) {
             Logger.getLogger(CaracteristicaJSFBean.class.getName()).log(Level.SEVERE, null, ex);
         }
 
     }
+    
+  
 
     @Override
     public void init() {

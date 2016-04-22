@@ -18,7 +18,7 @@ and open the template in the editor.
 
     <ui:composition template="/base/paginamaestra.xhtml">
         <ui:define name="top">
-
+            <ace:pushButton actionListener="#{caractXCarJSFBean.guardarCaractXAuto_AE()}" value="Grabar característica por auto"/>
         </ui:define>
 
         <ui:define name="left">
@@ -35,6 +35,10 @@ and open the template in the editor.
                             <h:outputText value="Autos"/>
                         </f:facet>
                         <ace:column>
+
+                            <ace:checkboxButton value="#{item.seleccionado}"/>
+                        </ace:column>
+                        <ace:column>
                             <f:facet name="header">
                                 <h:outputText value="Nombre"/>
                             </f:facet>
@@ -50,7 +54,25 @@ and open the template in the editor.
                             <f:facet name="header">
                                 <h:outputText value="Características"/>
                             </f:facet>
+                            <ace:dataTable value="#{item.tcXCarro}" var="itemCaractXAuto"
+                                           >
+                                <f:facet name="header">
+                                    <h:outputText value="Características"/>
+                                </f:facet>
 
+                                <ace:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="Nombre"/>
+                                    </f:facet>
+                                    <h:outputText value="#{itemCaractXAuto.caracteristica.crtcDescripcion}"/>
+                                </ace:column>
+                                <ace:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="Tipo"/>
+                                    </f:facet>
+                                    <h:outputText value="#{itemCaractXAuto.caracteristica.tpcrId.tpcrNombre}"/>
+                                </ace:column>
+                            </ace:dataTable>
                         </ace:column>
                     </ace:dataTable>
                     <ace:dataTable value="#{caracteristicaJSFBean.lstTablaCaract}" var="itemCaract"
@@ -75,28 +97,7 @@ and open the template in the editor.
                             <h:outputText value="#{itemCaract.caracteristica.tpcrId.tpcrNombre}"/>
                         </ace:column>
                     </ace:dataTable>
-                    <ace:dataTable value="#{caracteristicaJSFBean.lstTablaCaract}" var="itemCaract"
-                                   >
-                        <f:facet name="header">
-                            <h:outputText value="Características"/>
-                        </f:facet>
-                        <ace:column>
 
-                            <ace:checkboxButton value="#{itemCaract.seleccionado}"/>
-                        </ace:column>
-                        <ace:column>
-                            <f:facet name="header">
-                                <h:outputText value="Nombre"/>
-                            </f:facet>
-                            <h:outputText value="#{itemCaract.caracteristica.crtcDescripcion}"/>
-                        </ace:column>
-                        <ace:column>
-                            <f:facet name="header">
-                                <h:outputText value="Tipo"/>
-                            </f:facet>
-                            <h:outputText value="#{itemCaract.caracteristica.tpcrId.tpcrNombre}"/>
-                        </ace:column>
-                    </ace:dataTable>
 
                 </h:panelGrid>
             </ace:panel>

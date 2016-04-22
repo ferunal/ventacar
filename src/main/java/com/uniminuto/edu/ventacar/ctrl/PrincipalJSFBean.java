@@ -6,6 +6,7 @@
 package com.uniminuto.edu.ventacar.ctrl;
 
 import com.uniminuto.edu.ventacar.base.BaseJSFBean;
+import javax.annotation.PostConstruct;
 import javax.enterprise.context.SessionScoped;
 import javax.faces.event.ActionEvent;
 import javax.inject.Inject;
@@ -23,6 +24,10 @@ public class PrincipalJSFBean extends BaseJSFBean {
     AutoJSFBean autoJSFBean;
     @Inject
     CaracteristicaJSFBean caracteristicaJSFBean;
+    @Inject
+    CaractXCarJSFBean caractXCarJSFBean;
+    @Inject
+    ComentariosJSFBean comentariosJSFBean;
 
     public void navAuto_AE() {
         autoJSFBean.init();
@@ -33,9 +38,25 @@ public class PrincipalJSFBean extends BaseJSFBean {
         caracteristicaJSFBean.init();
     }
 
+    public void navCxc_AE() {
+        caracteristicaJSFBean.init();
+        autoJSFBean.init();
+        caractXCarJSFBean.init();
+        caracteristicaJSFBean.cargarCaracts();
+        autoJSFBean.cargarCarros();
+    }
+
+    public void inicio_AE() {
+        caracteristicaJSFBean.limpiarVariables();
+        autoJSFBean.limpiarVariables();
+        caractXCarJSFBean.limpiarVariables();
+    }
+
+    @PostConstruct
     @Override
     public void init() {
-
+        comentariosJSFBean.init();
+        comentariosJSFBean.cargarUsuarios();
     }
 
     @Override

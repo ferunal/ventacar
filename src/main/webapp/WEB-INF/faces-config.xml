@@ -13,5 +13,13 @@
             <from-outcome>caract</from-outcome>
             <to-view-id>/crud/Caracteristica.jsf</to-view-id>
         </navigation-case>
+         <navigation-case>
+            <from-outcome>cxa</from-outcome>
+            <to-view-id>/crud/CaractXAuto.jsf</to-view-id>
+        </navigation-case>
+          <navigation-case>
+            <from-outcome>volver</from-outcome>
+            <to-view-id>/inicio.jsf</to-view-id>
+        </navigation-case>
     </navigation-rule>
 </faces-config>
