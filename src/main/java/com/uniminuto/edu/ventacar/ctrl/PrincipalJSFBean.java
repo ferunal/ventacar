@@ -50,8 +50,13 @@ public class PrincipalJSFBean extends BaseJSFBean {
         caracteristicaJSFBean.limpiarVariables();
         autoJSFBean.limpiarVariables();
         caractXCarJSFBean.limpiarVariables();
+        comentariosJSFBean.limpiarVariables();
     }
 
+    public void navomentarios_AE(){
+    comentariosJSFBean.init();
+    comentariosJSFBean.cargarUsuarios();
+    }
     @PostConstruct
     @Override
     public void init() {
