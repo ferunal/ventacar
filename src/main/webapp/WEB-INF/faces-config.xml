@@ -18,6 +18,10 @@
             <to-view-id>/crud/CaractXAuto.jsf</to-view-id>
         </navigation-case>
           <navigation-case>
+            <from-outcome>com</from-outcome>
+            <to-view-id>/comentarios/Comentarios.jsf</to-view-id>
+        </navigation-case>
+          <navigation-case>
             <from-outcome>volver</from-outcome>
             <to-view-id>/inicio.jsf</to-view-id>
         </navigation-case>

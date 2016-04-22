@@ -6,7 +6,10 @@
 package com.uniminuto.edu.ventacar.ctrl;
 
 import com.uniminuto.edu.ventacar.base.ConexionBD;
+import com.uniminuto.edu.ventacar.modelo.CmtCalificacion;
+import com.uniminuto.edu.ventacar.modelo.VntCaracteristicas;
 import com.uniminuto.edu.ventacar.modelo.VntCarro;
+import com.uniminuto.edu.ventacar.modelo.VntTipocrt;
 import java.io.IOException;
 import java.io.Serializable;
 import java.nio.file.Files;
@@ -14,6 +17,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.sql.CallableStatement;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -40,6 +44,7 @@ public class AutoJSFBean extends ConexionBD implements Serializable {
 
     @Inject
     CaracteristicaJSFBean caracteristicaJSFBean;
+
     public void listener(FileEntryEvent event) {
         fc = FacesContext.getCurrentInstance();
         ExternalContext ec = fc.getExternalContext();
@@ -88,6 +93,39 @@ public class AutoJSFBean extends ConexionBD implements Serializable {
 //    public List<TablaCaracteristica> cargarCaractXCarro() {
 //        
 //    }
+    public List<CmtCalificacion> getCmtCalificacionsXauto(Long pCarId) {
+        List<CmtCalificacion> lstCalfXAuto = new ArrayList<>();
+
+        try {
+            String strSql = "SELECT \n"
+                    + "  cmt_calificacion.cmtr_id, \n"
+                    + "  cmt_calificacion.cmtr_comentario, \n"
+                    + "  cmt_calificacion.usr_id, \n"
+                    + "  cmt_calificacion.car_id, \n"
+                    + "  cmt_calificacion.cmrt_fecha\n"
+                    + "FROM \n"
+                    + "  cmt_calificacion, \n"
+                    + "  vnt_carro\n"
+                    + "WHERE \n"
+                    + "  vnt_carro.car_id = cmt_calificacion.car_id\n"
+                    + "  AND cmt_calificacion.car_id = ? ORDER BY cmt_calificacion.cmrt_fecha DESC";
+            PreparedStatement st = conPg.prepareStatement(strSql);
+            st.setLong(1, pCarId);
+            ResultSet rs = st.executeQuery();
+            while (rs.next()) {
+                CmtCalificacion vc = new CmtCalificacion(rs.getLong("cmtr_id"));
+                vc.setCmtrComentario(rs.getString("cmtr_comentario"));
+                vc.setCmrtFecha(rs.getDate("cmrt_fecha"));
+                vc.setUsrId("usr_id");
+
+                lstCalfXAuto.add(vc);
+            }
+            return lstCalfXAuto;
+        } catch (SQLException ex) {
+            Logger.getLogger(AutoJSFBean.class.getName()).log(Level.SEVERE, null, ex);
+            return new ArrayList<>();
+        }
+    }
 
     public void cargarCarros() {
         fc = FacesContext.getCurrentInstance();
@@ -109,6 +147,7 @@ public class AutoJSFBean extends ConexionBD implements Serializable {
                     Logger.getLogger(AutoJSFBean.class.getName()).log(Level.SEVERE, null, ex);
                 }
                 tablaCarro.setTcXCarro(caracteristicaJSFBean.cargarCaractsXAuto(vc.getCarId()));
+                tablaCarro.setLstCmtCalificacion(getCmtCalificacionsXauto(vc.getCarId()));
                 lstTablaCarro.add(tablaCarro);
             }
         } catch (SQLException ex) {

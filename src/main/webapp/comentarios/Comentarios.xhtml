@@ -18,7 +18,7 @@ and open the template in the editor.
 
     <ui:composition template="/base/paginamaestra.xhtml">
         <ui:define name="top">
-
+            <ace:pushButton value="Grabar comentario" actionListener="#{comentariosJSFBean.grabarComentario_AE()}"/>
         </ui:define>
 
         <ui:define name="left">
@@ -29,16 +29,100 @@ and open the template in the editor.
 
         <ui:define name="content">
 
-  <ace:panel header="Comentarios">
+            <ace:panel header="Comentarios">
                 <h:panelGrid columns="2">
                     <h:outputText value="Usuario"/>
-                    <ace:simpleSelectOneMenu value="#{comentariosJSFBean.tablaUsuarioSel}">
-                        <f:selectItems value="#{comentariosJSFBean.lstTablaUsuarios}" 
-                                       var="itemTu" itemLabel="#{itemTu.uusario.usrNombre}" itemValue="#{itemTu.uusario.usrId}"/>
+                    <ace:simpleSelectOneMenu value="#{comentariosJSFBean.idUsrSel}">
+                        <f:selectItems 
+                            value="#{comentariosJSFBean.lstItemsUsr}"/>
                     </ace:simpleSelectOneMenu>
                 </h:panelGrid>
             </ace:panel>
-            
+            <ace:panel header="Comentarios por auto">
+                <h:panelGrid columns="3">
+                    <ace:dataTable value="#{autoJSFBean.lstTablaCarro}" var="item">
+                        <f:facet name="header">
+                            <h:outputText value="Autos"/>
+                        </f:facet>
+                        <ace:column>
+
+                            <ace:checkboxButton value="#{item.seleccionado}"/>
+                        </ace:column>
+                        <ace:column>
+                            <f:facet name="header">
+                                <h:outputText value="Nombre"/>
+                            </f:facet>
+                            <h:outputText value="#{item.carro.carNombre}"/>
+                        </ace:column>
+                        <ace:column>
+                            <f:facet name="header">
+                                <h:outputText value="Foto"/>
+                            </f:facet>
+                            <ace:graphicImage value="#{item.byteArrrayImagen}" alt="#{item.carro.carFoto}"/>
+                        </ace:column>
+                        <ace:column>
+                            <f:facet name="header">
+                                <h:outputText value="Características"/>
+                            </f:facet>
+                            <ace:dataTable value="#{item.tcXCarro}" var="itemCaractXAuto"
+                                           >
+                                <f:facet name="header">
+                                    <h:outputText value="Características"/>
+                                </f:facet>
+
+                                <ace:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="Nombre"/>
+                                    </f:facet>
+                                    <h:outputText value="#{itemCaractXAuto.caracteristica.crtcDescripcion}"/>
+                                </ace:column>
+                                <ace:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="Tipo"/>
+                                    </f:facet>
+                                    <h:outputText value="#{itemCaractXAuto.caracteristica.tpcrId.tpcrNombre}"/>
+                                </ace:column>
+                            </ace:dataTable>
+                        </ace:column>
+                        <ace:column>
+                            <f:facet name="header">
+                                <h:outputText value="Comentarios"/>
+                            </f:facet>
+                            <ace:dataTable value="#{item.lstCmtCalificacion}" var="itemComXAuto"
+                                           >
+                                <f:facet name="header">
+                                    <h:outputText value="Comentarios"/>
+                                </f:facet>
+
+                                <ace:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="Comentario"/>
+                                    </f:facet>
+                                    <h:outputText value="#{itemComXAuto.cmtrComentario}"/>
+                                </ace:column>
+                                <ace:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="Fecha"/>
+                                    </f:facet>
+                                    <h:outputText value="#{itemComXAuto.cmrtFecha}">
+                                        <f:convertDateTime pattern="dd/MM/yyyy HH:mm:ss"/>
+                                    </h:outputText>
+                                </ace:column>
+                                <ace:column>
+                                    <f:facet name="header">
+                                        <h:outputText value="Usuario"/>
+                                    </f:facet>
+                                    <h:outputText value="#{itemComXAuto.usrId}"/>
+                                </ace:column>
+                            </ace:dataTable>
+                        </ace:column>
+                    </ace:dataTable>
+
+                </h:panelGrid>
+            </ace:panel>
+            <ace:panel header="Comentario">
+                <ace:textEntry value="#{comentariosJSFBean.comentario}"/>
+            </ace:panel>
         </ui:define>
     </ui:composition>
 </html>

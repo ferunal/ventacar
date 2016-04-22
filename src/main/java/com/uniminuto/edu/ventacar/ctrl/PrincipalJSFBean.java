@@ -53,10 +53,13 @@ public class PrincipalJSFBean extends BaseJSFBean {
         comentariosJSFBean.limpiarVariables();
     }
 
-    public void navomentarios_AE(){
-    comentariosJSFBean.init();
-    comentariosJSFBean.cargarUsuarios();
+    public void navomentarios_AE() {
+        comentariosJSFBean.init();
+        comentariosJSFBean.cargarUsuarios();
+
+        caractXCarJSFBean.init();
     }
+
     @PostConstruct
     @Override
     public void init() {

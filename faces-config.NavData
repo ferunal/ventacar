@@ -2,8 +2,8 @@
 <Scene Scope="Project" version="2">
     <Scope Scope="Faces Configuration Only"/>
     <Scope Scope="Project">
-        <Node id="crud/Caracteristica.xhtml" x="650" y="150" zoom="true"/>
         <Node id="inicio.xhtml" x="179" y="97" zoom="true"/>
+        <Node id="crud/Caracteristica.xhtml" x="650" y="150" zoom="true"/>
         <Node id="crud/Auto.xhtml" x="177" y="180" zoom="true"/>
         <Node id="Comparar.xhtml" x="400" y="300" zoom="true"/>
         <Node id="base/paginamaestra.xhtml" x="150" y="300" zoom="true"/>

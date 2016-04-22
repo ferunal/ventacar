@@ -6,6 +6,7 @@
 package com.uniminuto.edu.ventacar.ctrl;
 
 import com.uniminuto.edu.ventacar.base.TablaBaseFrm;
+import com.uniminuto.edu.ventacar.modelo.CmtCalificacion;
 import com.uniminuto.edu.ventacar.modelo.VntCarro;
 import java.util.ArrayList;
 import java.util.List;
@@ -20,6 +21,7 @@ public class TablaCarro extends TablaBaseFrm {
     private VntCarro carro = new VntCarro();
     private byte[] byteArrrayImagen;
     private List<TablaCaracteristica> tcXCarro = new ArrayList<>();
+    private List<CmtCalificacion> lstCmtCalificacion = new ArrayList<>();
 
     public TablaCarro() {
     }
@@ -93,6 +95,20 @@ public class TablaCarro extends TablaBaseFrm {
      */
     public void setTcXCarro(List<TablaCaracteristica> tcXCarro) {
         this.tcXCarro = tcXCarro;
+    }
+
+    /**
+     * @return the lstCmtCalificacion
+     */
+    public List<CmtCalificacion> getLstCmtCalificacion() {
+        return lstCmtCalificacion;
+    }
+
+    /**
+     * @param lstCmtCalificacion the lstCmtCalificacion to set
+     */
+    public void setLstCmtCalificacion(List<CmtCalificacion> lstCmtCalificacion) {
+        this.lstCmtCalificacion = lstCmtCalificacion;
     }
 
    

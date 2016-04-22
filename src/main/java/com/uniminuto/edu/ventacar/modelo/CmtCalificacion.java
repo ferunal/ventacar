@@ -5,6 +5,7 @@
  */
 package com.uniminuto.edu.ventacar.modelo;
 
+import com.uniminuto.edu.ventacar.ctrl.TablaCarro;
 import java.io.Serializable;
 import java.util.Date;
 
@@ -20,7 +21,8 @@ public class CmtCalificacion implements Serializable {
     private String cmtrComentario;
     private Date cmrtFecha;
     private String usrId;
-    private VntCarro carId;
+    private String usrNombre;
+ 
 
     public CmtCalificacion() {
     }
@@ -61,13 +63,7 @@ public class CmtCalificacion implements Serializable {
         this.usrId = usrId;
     }
 
-    public VntCarro getCarId() {
-        return carId;
-    }
-
-    public void setCarId(VntCarro carId) {
-        this.carId = carId;
-    }
+    
 
     @Override
     public int hashCode() {
@@ -92,6 +88,20 @@ public class CmtCalificacion implements Serializable {
     @Override
     public String toString() {
         return "com.uniminuto.edu.ventacar.modelo.CmtCalificacion[ cmtrId=" + cmtrId + " ]";
+    }
+
+    /**
+     * @return the usrNombre
+     */
+    public String getUsrNombre() {
+        return usrNombre;
+    }
+
+    /**
+     * @param usrNombre the usrNombre to set
+     */
+    public void setUsrNombre(String usrNombre) {
+        this.usrNombre = usrNombre;
     }
     
 }
